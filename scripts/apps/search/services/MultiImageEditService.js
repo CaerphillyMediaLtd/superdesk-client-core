@@ -58,15 +58,18 @@ export function MultiImageEditService($modal, authoring) {
 
                     function compare(value) {
                         let uniqueValue = true;
+                        let initialValue = _.find($scope.origin, (origImage) => origImage._id === $scope.images[0]._id);
 
                         angular.forEach($scope.images, (image) => {
-                            if ($scope.images[0][value] !== image[value]) {
+                            let compareImage = _.find($scope.origin, (origImage) => origImage._id === image._id);
+
+                            if (initialValue[value] !== compareImage[value]) {
                                 uniqueValue = false;
                             }
                         });
 
                         if (uniqueValue) {
-                            return $scope.images[0][value];
+                            return initialValue[value];
                         }
 
                         $scope.placeholder[value] = '(multiple values)';
