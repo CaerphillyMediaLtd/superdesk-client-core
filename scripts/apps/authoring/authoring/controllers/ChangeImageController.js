@@ -27,7 +27,7 @@ export function ChangeImageController($scope, gettext, notify, modal, _, api, $r
         saturate: 1,
         rotate: 0,
         fliph: 'none',
-        flipv: 'none'
+        flipv: 'none',
     };
 
     $scope.showMetadata = true;
