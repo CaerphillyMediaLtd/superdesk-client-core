@@ -33,6 +33,11 @@ export function MultiImageEditService($modal, authoring) {
                         });
                     };
 
+                    $scope.onChange = (field) => {
+                        $scope.isDirty[field] = true;
+                        $scope.placeholder[field] = '';
+                    };
+
                     $scope.save = (close) => {
                         angular.forEach(data, (image) => {
                             authoring.save(image, _.find($scope.origin, (item) => item._id === image._id));
@@ -76,6 +81,7 @@ export function MultiImageEditService($modal, authoring) {
                         });
 
                         if (uniqueValue) {
+                            $scope.placeholder[value] = '';
                             return initialValue[value];
                         }
 
