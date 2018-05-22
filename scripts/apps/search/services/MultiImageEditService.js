@@ -14,6 +14,8 @@ export function MultiImageEditService($modal, authoring) {
                     $scope.placeholder = {};
                     $scope.isDirty = {};
 
+                    $scope.isDirty = () => !_.isEmpty($scope.isDirty);
+
                     $scope.selectImage = (image) => {
                         image.unselected = !image.unselected;
                         image.unselected ?
@@ -57,6 +59,11 @@ export function MultiImageEditService($modal, authoring) {
                     }
 
                     function compare(value) {
+                        if (!$scope.images.length) {
+                            $scope.placeholder = {};
+                            return '';
+                        }
+
                         let uniqueValue = true;
                         let initialValue = _.find($scope.origin, (origImage) => origImage._id === $scope.images[0]._id);
 
