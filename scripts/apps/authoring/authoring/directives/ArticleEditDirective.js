@@ -280,7 +280,7 @@ export function ArticleEditDirective(
                  */
                 scope.applyCrop = function() {
                     scope.mediaLoading = true;
-                    return renditions.crop(scope.item, false)
+                    return renditions.crop(scope.item, false, true, false, 'crop', true)
                         .then((picture) => {
                             if (authoring.isPublished(scope.item)) {
                                 mainEditScope.dirty = true;

@@ -11,7 +11,8 @@
 
     <div class="modal__header-buttons modal__header-buttons--right">
         <button class="btn btn--ui-dark btn--hollow" ng-click="close()" ng-disabled="isAoISelectionModeEnabled">{{ 'Close' | translate }}</button>
-        <button class="btn btn--primary btn--hollow" ng-click="done()" ng-disabled="!saveIsEnabled() || isAoISelectionModeEnabled">{{ 'Save & Close' | translate }}</button>
+        <button class="btn btn--primary btn--hollow" ng-click="" ng-disabled="!saveIsEnabled() || isAoISelectionModeEnabled">{{ 'Save' | translate }}</button>
+        <button class="btn btn--primary btn--hollow" ng-click="done(true)" ng-disabled="!saveIsEnabled() || isAoISelectionModeEnabled">{{ 'Save & Close' | translate }}</button>
     </div>
 </div>
 

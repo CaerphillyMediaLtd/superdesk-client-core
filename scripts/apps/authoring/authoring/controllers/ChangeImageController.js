@@ -30,7 +30,8 @@ export function ChangeImageController($scope, gettext, notify, modal, _, api, $r
         flipv: 'none',
     };
 
-    $scope.showMetadata = true;
+    $scope.showMetadata = $scope.data.showMetadata;
+    $scope.nav = $scope.data.defaultTab || 'view';
 
     $scope.data.renditions.forEach((rendition) => {
         let original = $scope.data.item.renditions.original;
